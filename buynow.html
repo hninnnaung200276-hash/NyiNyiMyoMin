@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh Fruits Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+
+    <nav>
+
+      <h2>🍎 Fresh Fruit Shop</h2>
+
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="fruit.html">Fruits</a></li>
+        <li><a href="fruit benefit.html">Fruit Benefits</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </nav>
+
+    <div class="hero" id="home">
+      <h1>Fresh & Healthy Fruits</h1>
+    </div>
+
+  </header>
+  <!-- --------------------------------profile end----------------------------------- -->
+
+  
+ <div class="containe">
+
+  <h2>🛒 Order Form</h2>
+
+  <div class="product">
+    <h3 id="name"></h3>
+    <div class="price" id="price"></div>
+  </div>
+
+  <!-- Quantity -->
+  <label>Quantity</label>
+  <input type="number" id="qty" value="1" min="1">
+
+  <!-- Customer Info -->
+  <label>Full Name</label>
+  <input type="text" placeholder="Enter your name" required>
+
+  <label>Phone Number</label>
+  <input type="text" placeholder="09xxxxxxxxx" required>
+
+  <label>Address</label>
+  <input type="text" placeholder="Your address" required>
+
+
+  <!-- Payment -->
+  <label>Payment Method</label>
+  <select>
+    <option>KBZPay</option>
+    <option>WavePay</option>
+    <option>AYA Pay</option>
+    <option>CB Pay</option>
+  </select>
+
+  <div class="total">Total: <span id="total"></span> MMK</div>
+
+  <button onclick="order()">Confirm Order</button>
+
+</div>
+
+<script>
+const name = localStorage.getItem("productName");
+const price = parseInt(localStorage.getItem("productPrice"));
+
+document.getElementById("name").innerText = name;
+document.getElementById("price").innerText = price + " MMK";
+
+const qty = document.getElementById("qty");
+const total = document.getElementById("total");
+
+function updateTotal() {
+  total.innerText = price * qty.value;
+}
+
+qty.addEventListener("input", updateTotal);
+updateTotal();
+
+function order() {
+   const fullName= document.querySelector('input[placeholder="Enter your name"]').value.trim();
+   const phone= document.querySelector('input[placeholder="09xxxxxxxxx"]').value.trim();
+  const address= document.querySelector('input[placeholder="Your address"]').value.trim();
+
+  if (!fullName || !phone || !address){
+    alert("please fill out the field!");
+  return;
+   }
+
+  alert("Order Submitted ✅\nWe will contact you soon!");
+}
+</script>
+
+  
+<!-- -------------------------------------footer start-------------------------------------- -->
+   <footer class="main-footer" id="contact">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="logo">Address</div>
+        <p>No. 14, Main Street,Eaint Shit Phyin Township,Dawei, Myanmar</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h2>Quick Links</h2>
+        <ul>
+         <li><a href="index.html">Home</a></li>
+        <li><a href="fruit.html">Fruits</a></li>
+        <li><a href="fruit benefit.html">Fruit Benefits</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>Contact Info</h2>
+        <p><i class="fas fa-map-marker-alt"></i> Dawei, Myanmar</p>
+        <p><i class="fas fa-phone"></i> +95 9422680424</p>
+        <p><i class="fas fa-envelope"></i> info@fruitshop.com</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Newsletter</h2>
+        <p>Subscribe for exclusive car launches.</p>
+       <form class="footer-form" action="#confirm-box1">
+          <input type="email" placeholder="Your Email" required>
+          <button type="submit" class="order-btn1">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+     <p> <h3>&copy; 2026 Fresh Fruit Shore | Nyi Nyi Myo Min</h3> </p>
+    </div>
+  </footer>
+
+  <div id="confirm-box1" class="modal-overlay1">
+    <div class="modal-content1">
+         <h2>Joined Successfully!</h2>
+      <p>Thanks for subscribing our page.</p>
+        <a href="#" class="close-btn1">OK</a>
+    </div>
+</div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+
+    
+
+
+</body>
+</html>
